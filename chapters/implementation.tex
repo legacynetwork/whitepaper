@@ -5,7 +5,9 @@ This chapter focuses on software architecture and implementation aspects. We ide
 
 Legacy’s core functionalities reside in a blockchain platform (more specifically, the Ethereum blockchain). This aspect is perhaps the main competitive advantage of Legacy with respect to similar solutions, and also enables additional functionalities that have not been addressed by other services. Before introducing Legacy’s general architecture, the reasons why a blockchain platform has been adopted are briefly discussed next.
 
-
+% ---------------------------------------------------------------------------------------------------------------- %
+% Why Blockchain
+% ---------------------------------------------------------------------------------------------------------------- %
 \section{Why Blockchain?} % (fold)
 \label{sec:why_blockchain_}
 
@@ -19,6 +21,9 @@ The essential role of a blockchain consists on removing the dependency on truste
 
 % section why_blockchain_ (end)
 
+% ---------------------------------------------------------------------------------------------------------------- %
+% Architecture
+% ---------------------------------------------------------------------------------------------------------------- %
 \section{Architecture} % (fold)
 \label{sec:architecture}
 Legacy’s architecture is composed by several entities: the blockchain platform, Legacy’s own infrastructure, an Oracle---which serves as interface between the smart contracts and the outside world---and other third-party services. In an ideal scenario, third-party services would only be required for providing input data to the PoL engine, whereas most of the application logic would reside in the Blockchain. However, given the current state of maturity of blockchain technologies and related services, some functionalities must be initially implemented using a custom backend as well as third-party infrastructure. As a consequence, Legacy’s architecture is expected to evolve in time, starting from a hybrid architecture and converging towards a fully decentralized architecture.
@@ -46,6 +51,9 @@ Legacy v2.0 Heritage will be Legacy’s second stable release. It main differenc
 
 % section architecture (end)
 
+% ---------------------------------------------------------------------------------------------------------------- %
+% Technical Aspects
+% ---------------------------------------------------------------------------------------------------------------- %
 \section{Technical Aspects} % (fold)
 \label{sec:technical_aspects}
 

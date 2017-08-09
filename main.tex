@@ -9,6 +9,7 @@
 
 % Some page styling:
 %\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[margin=0.5in]{geometry}
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
 
@@ -23,11 +24,11 @@
 % Bibtex
 %\usepackage{cite} % use cite with natbib but not with biblatex
 %\usepackage{natbib}
-\usepackage[style=alphabetic,natbib=true]{biblatex}
-\bibliography{./refs} % put here in preamble when using biblatex
+\usepackage[style=numeric,backend=bibtex]{biblatex}
+\bibliography{refs} % put here in preamble when using biblatex
 
+\usepackage[titletoc]{appendix}
 \usepackage{float}
-%\usepackage{color}
 \usepackage{graphicx}
 \usepackage{rotating}
 %\usepackage{eso-pic}
@@ -35,7 +36,6 @@
 \usepackage{enumerate} % custom lists
 %\usepackage{url}
 %\usepackage{soul}
-%\usepackage{fancyhdr}
 % for working with eps
 \usepackage{epstopdf} 
 \usepackage{color} % color text
@@ -53,10 +53,8 @@
 % ---------------------- %
 \newcommand{\bibpath}{.}
 
-% row counting for tables
-% ---------------------- %
-\newcounter{magicrownumbers}
-\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+\usepackage[hidelinks]{hyperref}
+
 
 % end preamble
 %
@@ -73,7 +71,7 @@
   Michel, Nicolas\\
   \texttt{nicolas@legacy.network}
   \and
-  Almonacid Zamora, Vicente\\
+  Almonacid, Vicente\\
   \texttt{vicente@legacy.network}
 }
 \date{\today}
@@ -99,6 +97,11 @@
 \include{chapters/team}
 
 % ---------------------- %
+% Appendix
+% ---------------------- %
+\include{chapters/appendix}
+
+% ---------------------- %
 % Bibliography
 % ---------------------- %
 %
@@ -108,10 +111,5 @@
 %
 % 2. uing biblatex
 \printbibliography
-
-% ---------------------- %
-% Appendix
-% ---------------------- %
-\include{chapters/appendix}
 		
 \end{document}}
