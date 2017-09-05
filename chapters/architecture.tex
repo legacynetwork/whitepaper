@@ -1,0 +1,33 @@
+% ---------------------------------------------------------------------------------------------------------------- %
+% Architecture
+% ---------------------------------------------------------------------------------------------------------------- %
+\chapter{Architecture} % (fold)
+\label{cha:architecture}
+
+Legacy’s architecture is composed by several entities: the blockchain platform, Legacy’s own infrastructure, an Oracle---which serves as interface between the smart contracts and the outside world---and other third-party services. In an ideal scenario, third-party services would only be required for providing input data to the PoL engine, whereas most of the application logic would reside in the Blockchain. However, given the current state of maturity of blockchain technologies and related services, some functionalities must be initially implemented using a custom backend as well as third-party infrastructure. As a consequence, Legacy’s architecture is expected to evolve in time, starting from a hybrid architecture and converging towards a fully decentralized architecture.
+
+
+\section{Legacy v1.0 (Memoirs): A Hybrid Architecture} % (fold)
+\label{sec:legacy_v1_0_memoirs_a_hybrid_architecture}
+Legacy v1.0, named \textit{Memoirs}, will be the first stable release of the Legacy Project. This initial version enables secure distribution of memories in the form of digital data, such as pictures, videos, text documents, etc. Since blockchain technologies supporting privacy requirements are still evolving, Legacy Memoirs is based on a hybrid architecture, taking advantage of smart contracts but keeping sensitive data on more traditional technologies.
+A high-level representation of Legacy Memoirs’ architecture is given in Figure \ref{fig:leg_v1_arch}. Legacy’s own infrastructure and frontends are shown in blue, third-party services in green and the blockchain in red. There are two main frontends: a web application, which is the main interface between the user and the core infrastructure, and a mobile application, which has more limited capabilities and is mainly used for providing user PoL data (see Section~\ref{sub:proof_of_life}). Legacy’s backend plays different roles. First, it creates smart contract instances after a user initiates the service and commits a capsule. Second, once a user smart contract is uploaded to the blockchain, the backend is in charge of running periodic calls in order to execute the code. And third, it also gathers PoL data from external web services and plugins. The user smart contract implements the PoL algorithm that determines if a user is still alive or not, schedules subsequent calls from the backend and triggers the distribution of capsules once the PoL engine determines that the user has died. 
+Memories and capsules will be initially stored using third-party services. Further details are given in Section \ref{sub:data_storage}.
+To allow our smart contracts to query the outside world (for instance, for PoL signalling), an Oracle interface is required. Legacy Memoirs will employ a third-party, Ethereum-compatible Oracle (such us Oraclize\footnote{http://www.oraclize.it/}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{fig/architecture_v02_hybrid}
+  \caption{Legacy Mémoires architecture.}
+  \label{fig:leg_v1_arch}
+\end{figure} 
+
+% subsection legacy_v1_0_memoirs_a_hybrid_architecture (end)
+
+\section{Legacy v2.0 (Heritage): Towards a Fully Decentralized Architecture} % (fold)
+\label{sec:legacy_v2_0_heritage_towards_a_fully_decentralized_architecture}
+Legacy v2.0 Heritage will be Legacy’s second stable release. It main differences with respect to Legacy Memoirs are in the underlying architecture. This version intends to take maximum advantage of blockchain features offering, in particular, on-chain storage services and improved privacy. 
+% TO-DO
+Release of this version is estimated for 2020, though it is subject to the technological advances in the blockchain ecosystem.
+% subsection legacy_v2_0_heritage_towards_a_fully_decentralized_architecture (end)
+
+% chapter architecture (end)

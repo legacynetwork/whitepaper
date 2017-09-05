@@ -1,4 +1,4 @@
-\documentclass[12pt,french,english]{report} % main lang last
+\documentclass[12pt,french,english,notitlepage]{report} % main lang last
 %\documentclass[12pt,english, spanish, french]{thesis}
 %
 % usage notes: 
@@ -42,6 +42,7 @@
 \usepackage{titlesec} % to change the way \paragraph formats the titles
 \usepackage{textcomp} % for copyright symbol
 \usepackage{quotchap} % for chapter openning quotes
+\usepackage{titling}
 
 % Define a path for the fig folder
 % nota: imges must be in the same folder or subfolders of this file, if not pdf2latex will complain
@@ -55,14 +56,6 @@
 
 \usepackage[hidelinks]{hyperref}
 
-
-% end preamble
-%
-
-% Start content
-% -------------------------------------------------------------------------------------- %
-\begin{document}
-
 % ---------------------- %
 % Title
 % ---------------------- %
@@ -74,8 +67,34 @@
   Almonacid, Vicente\\
   \texttt{vicente@legacy.network}
 }
-\date{\today}
+\date{\today\\v0.3}
+
+% end preamble
+%
+
+% Start content
+% -------------------------------------------------------------------------------------- %
+\begin{document}
+
+% \begin{titlingpage}
+%     \maketitle
+%     \begin{abstract}
+%         Legacy is a blockchain-based application that allows people to easily distribute assets upon their dead (or, in general, upon any verifiable event).
+%     \end{abstract}
+% \end{titlingpage}
+
 \maketitle
+\begin{abstract}
+    Legacy is blockchain-based application allowing people to easily distribute assets upon their death or, in general, upon any set of verifiable events.
+    The application integrates a variety of services that will be developed progressively as blockchain technology consolidates. 
+    This paper mainly describes Legacy's initial releases, which allow to transfer digital assets, such as images, videos and text documents. 
+    The application core functionalities will be initially developed on the Ethereum blockchain. These include a Proof of Life engine responsible of determining whether the user is alive or not, and a smart-contract that manages user assets and schedules their distribution according to a given set of triggering events.
+    Exploiting the unique characteristics of blockchain platforms, Legacy is designed in order to ensure security, reliability and long-term availability. 
+    Typical use cases include transfer of sensible data (\textit{e.g.}, personal meaningful data), cryptocurrency holdings and confidential data such as account credentials of digital services. 
+    In the long-term, Legacy expects to integrate smart property as well as to provide a platform for peer-to-peer legal and technical assistance, thus becoming a next-generation smart-will solution.
+
+\end{abstract}
+
 
 % \chapter*{Acknowledgements}
 % I want to thank...
@@ -89,12 +108,14 @@
 % ---------------------- %
 
 \include{chapters/exec_summ}
-\include{chapters/business_model}
+%\include{chapters/business_model}
 \include{chapters/implementation}
-\include{chapters/roadmap}
+\include{chapters/architecture}
+\include{chapters/token}
+%\include{chapters/roadmap}
 \include{chapters/legal}
-\include{chapters/crowdfunding}
-\include{chapters/team}
+%\include{chapters/crowdfunding}
+%\include{chapters/team}
 
 % ---------------------- %
 % Appendix
@@ -111,5 +132,5 @@
 %
 % 2. uing biblatex
 \printbibliography
-		
+
 \end{document}}
