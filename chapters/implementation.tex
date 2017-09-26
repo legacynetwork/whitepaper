@@ -47,29 +47,30 @@ Among some identified third-party providers we may mention:
 \end{itemize}
 
 These are all based on decentralized architectures and have been considered as candidate solutions for Legacy.
-In partiular, blockchain-based file storage provides high reliability, DDOS resistance, fault tolerance, among other desirable attributes. 
+In particular, blockchain-based file storage provides high reliability, DDOS resistance, fault tolerance, among other desirable attributes. 
 
-To further improve storage reliability, more ``traditional'' services can be also considered, as for instance local storage (\textit{i.e.}, using Legacy's infrastructure), Glacier by Amazon, hubiC by OVH and Drive by Google (Centralized).
-Combining proven and experimental storage methods will allow Legacy to be confident in its longevity promise.
+To further improve storage reliability, more ``traditional'' services can be also considered, as for instance local storage (\textit{i.e.}, using Legacy's infrastructure), Glacier by Amazon, hubiC by OVH and Drive by Google.
+%Combining proven and experimental storage methods will allow Legacy to be confident in its longevity promise.
 
-Another approach for data storage consists on deploying a decentralized network of nodes running the IPFS protocol \cite{Benet}. Such a network would be composed by any individual or organization interested in offering storage services. The LEG token (see Section \ref{cha:the_legacy_token}) can be used for paying storage fees.
-While this approach is essentially the same approach used by some of the blockchain-based storage services cited above, it provides the advantage of not being based on a third parties.
+Another approach for data storage consists on deploying a decentralized network of nodes running the IPFS protocol \cite{Benet}. Such a network would be composed by any individual or organization interested in offering storage services. In this case, the LEG token (see Section \ref{cha:the_legacy_token}) can be used to reward nodes offering storage services.
+While this approach is essentially the same approach used by some of the blockchain-based storage services cited above, it provides the advantage of not being dependent on third parties.
 
 % subsection data_storage (end)
 
 \subsection{Proof of Life} % (fold)
 \label{sub:proof_of_life}
 
-The set of functions by which Legacy determines if a user has died is referred to as Proof of Life (PoL). The PoL engine is implemented at different parts of the application. It is configured by the user through the web interface and, internally, it is commanded by the user smart contract instance. Several different sources of data can be used for PoL purposes, among which we may mention:
+The set of functions by which the system determines if a user has died is referred to as Proof of Life (PoL). The PoL engine can be implemented at different levels of the application (see for instance Figure~\ref{fig:leg_v1_arch}). It is configured by the user through the web or mobile interface and, internally, is commanded by the user smart contract instance. Several different sources of data can be used for PoL purposes, among which we may mention:
 \begin{itemize}
-	\item Online user activity: simple plugins can be implemented in order to directly signal online user activity. To that end, each user is assigned a personal wallet that serves as interface with the user smart contract. In this way, when a user logs-in in a given web app, a simple empty transaction can be generated through a web app plugin to the user smart contract. Plugins can be integrated in social networks (e.g. Facebook and Twitter) and on the Legacy web interface as well.
-	\item A dedicated mobile app: Legacy may receive direct signalling using a mobile app in which users can simply press a button or answer some personal question.
-	\item Email notifications: users can signal activity by clicking on a link sent periodically from Legacy’s servers. 
-	\item Official data: Some governments offer official obituary databases that can be freely consulted through an API.  
-	\item Human-assisted mechanisms: as an additional PoL layer, Legacy may directly contact one or more persons previously designated by the user. This mechanism is referred to as ``Layer-3 PoL'' in the simplified diagram shown in Figure \ref{fig:flow_chart}. While this may go against the spirit of Legacy in that it involves intermediaries, it is also a valid alternative that may be required in some cases (for instance, users may require to have third persons to validate and supervise the whole process).
+	\item Online user activity: simple web plugins can be implemented in order to signal online user activity. To that end, each user is assigned a personal wallet (internally) that serves as interface with his or her smart contract. In this way, when a user logs-in in a given web application, a simple, empty transaction originated by the web plugin is sent from the user wallet to the user smart contract. Plugins can be integrated in social networks (e.g. Facebook and Twitter) and in the Legacy web interface as well.
+	\item Using a mobile application: Legacy may obtain direct and indirect PoL signalling through a mobile application. For direct signalling, users can simply receive periodic notifications that can be acknowledged involving minimal interaction. Alternatively, upon user's consent, indirect PoL signalling can be obtained using a background process able to read whatever metadata is provided by the user. First-order information can be readily obtained by simply verifying that the mobile phone is active.
+	\item Email notifications: users can signal activity by clicking on a link sent periodically from Legacy’s servers. This option is less practical but can be adopted whenever the above methods are not available or provide few information.
+	\item Official data: Some governments offer official obituary databases that can be freely fetched through an API.  
+	\item Human-assisted mechanisms: as an additional PoL layer, Legacy may directly contact one or more persons previously designated by the user. This mechanism is referred to as ``Layer-3 PoL'' in the simplified diagram shown in Figure \ref{fig:flow_chart}. While this option may go against the spirit of Legacy in that it involves intermediaries, it is also a valid alternative that may be preferred by the users in some cases (for instance, users may require to have third persons to validate and supervise the whole process).
 \end{itemize}
 
-The different PoL signalling channels are shown in Figure \ref{fig:leg_v1_arch}. Using this set of input data sources, a weighted algorithm determines the user state (alive/dead) with a given periodicity. The main input parameters, plugins and periodicity are fully configurable by the user, and can be adapted on-the-fly. The options available for PoL also vary according to the user’s subscription package because using additional mechanisms also results in increased transactions between the blockchain and external services, which in turn involves additional costs. 
+The different PoL signalling channels are shown in Figure \ref{fig:leg_v1_arch}. Using this set of input data sources, a weighted algorithm determines the user state (alive/dead) with a given periodicity. The main input parameters, plugins and periodicity can be fully configurable by the user, and can also be adapted dynamically (\textit{i.e.}, after the user smart contract has been created). The options available for PoL may also vary according to user’s subscription packages because using additional mechanisms also results in increased transactions between the blockchain and external services, which in turn involves additional costs. 
+
 
 \subsection{AI-aided Functionalities} % (fold)
 \label{sub:ai_aided_functionalities}
@@ -79,7 +80,7 @@ The different PoL signalling channels are shown in Figure \ref{fig:leg_v1_arch}.
 \subsubsection{AI-aided PoL} % (fold)
 \label{ssub:ai_based_pol}
 
-While providing a large number of options to configure the PoL engine brings flexibility and a higher degree of certainty, it has an impact on the user experience. A simple way to tackle this problem is to offer a default configuration set up with a few options. Alternatively, the use of artificial intelligence (AI) technology could greatly simplify the PoL interface, thus improving the user experience and provide an additional degree of certainty. AI-based PoL can be implemented as a first, default layer, transparent to the user, exploiting the same data sources mentioned above.
+While providing a large number of options to configure the PoL engine brings flexibility and a higher degree of certainty, it has an impact on the user experience. A simple way to tackle this problem is to offer a default configuration set-up with a few options. Alternatively, the use of artificial intelligence (AI) technology could greatly simplify the PoL interface, thus improving the user experience and provide an additional degree of certainty. AI-based PoL can be implemented as a first, default layer, transparent to the user, exploiting the same data sources mentioned above.
 
 % subsubsection ai_based_pol (end)
 
@@ -97,17 +98,19 @@ AI technology can also help to mitigate this problem, for instance, by monitorin
 \label{sub:security}
 Security is one of the key attributes that Legacy must exhibit in order to build confidence among the community. 
 In particular, it is desirable to securely transfer digital assets without requiring the intervention of a trusted third party. 
-While this can be easily achieved through the blockchain, this solution requires every beneficiary to hold an account in the network (\textit{i.e.}, a blockchain address to receive the assets) and hence it is not currently feasible.
-However, it is highly likely that blockchains will be massively adopted by individuals in the future---specially if its usage is encouraged by governments---which would greatly simplify the problem.
+While this can be easily achieved through the blockchain, this solution requires every beneficiary to hold an account in the network (\textit{i.e.}, a blockchain address allowing to send and receive digital assets) and hence it is not currently feasible.
+However, it is highly likely that blockchains will be widely adopted in the future---specially if their usage is encouraged by governments---which would greatly simplify the problem.
 In the meanwhile, a solution involving Legacy as a trusted third party is unavoidable.
-Security also means that Legacy must be robust against attacks. Measures to enforce Legacy's security include a more rigorous code development methodology and including regular code audits. Code audits by independent third parties are also considered.
+Security also means that Legacy must be robust against attacks. Measures to enforce Legacy's security include a more rigorous code development methodology and scheduling regular code audits. Code audits by independent third parties are also considered.
 
 
 % subsection security (end)
 
 \subsection{Privacy} % (fold)
 \label{sub:privacy}
-Protecting user's privacy involves some issues. By definition, public blockchains like Ethereum do not offer privacy, which compromises user-related information stored. This is a problem of active research and several solutions have been already proposed \cite{Buterin}. Most of user's data however will not be stored directly on Ethereum and will be encrypted.
+Protecting user's privacy involves some issues. By definition, public blockchains like Ethereum do not offer privacy, which compromises user-related information stored. This is a problem that is subject of active research and several solutions have been already proposed \cite{Buterin}. 
+
+In Legacy, most user data will not be stored directly on the blockchain (see Section \ref{sub:data_storage} above). In this way, data can be encrypted using robust algorithms without involving high complexity costs.
 Legacy is also monitoring current research on zero-party privacy, which offers significant advantages. With zero-party privacy, transferring sensible data would achieved without involving trusted third parties (including the Legacy organization).
 % subsection privacy (end)
 
@@ -121,6 +124,14 @@ From the point of view of the application architecture, the code must be able to
 Ensuring long-term service operation also requires to minimize the dependence on the Legacy organization itself. Indeed, users expect that their assets will be effectively distributed even in the eventuality that the Legacy organization is dissolved. 
 This will be one of the fundamental roles of the Legacy Foundation. Among the measures foreseen in this case, Legacy is committed to publish an open source application allowing users to keep paying operational costs (\textit{i.e.}, fees required for blockchain transactions and storage) in order to ensure continuous operation. The Legacy foundation will be in charge of maintaining the code and guaranteeing its functionality.
 
+%\subsection{A Reward System to Reinforce Long-term Service Availability} % (fold)
+% to-do
+%\label{sub:a_reward_system_to_reinforce_long_term_service_availability}
+
+% subsection a_reward_system_to_reinforce_long_term_service_availability (end)
+
 % section technical_aspects (end)
+
+
 
 % chapter implementation (end)
