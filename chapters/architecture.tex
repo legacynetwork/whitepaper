@@ -5,7 +5,7 @@
 \label{cha:architecture}
 
 Legacy’s architecture is composed by several entities: the blockchain platform, Legacy’s own infrastructure, an Oracle---which serves as interface between the smart contracts and the outside world---and other third-party services. In an ideal scenario, third-party services would only be required for providing input data to the PoL engine, whereas most of the application logic would reside in the Blockchain. However, given the current state of maturity of blockchain technologies and related services, some functionalities must be initially implemented using a custom backend as well as third-party infrastructure. As a consequence, Legacy’s architecture is expected to evolve in time, starting from a hybrid architecture and converging towards a fully decentralized architecture.
-In the long-term, Legacy is expected to operate autonomously---a design goal that is required in order to minimise trust on the Legacy organization and to
+In the long-term, the system is expected to evolve autonomously---a design goal that is required in order to minimise trust on the Legacy organization and to guarantee sustained operation in time.
 
 
 \section{Legacy v1.0 (Memoirs): A Hybrid Architecture} % (fold)
@@ -33,7 +33,7 @@ To allow our smart contracts to query the outside world (for instance, for PoL s
 \label{sec:legacy_v2_0_heritage_towards_a_fully_decentralized_architecture}
 Legacy v2.0 Heritage will be Legacy’s second stable release. Its main differences with respect to Legacy Memoirs are in the underlying architecture. This version intends to take maximum advantage of blockchain features and to minimise dependency on centralized infrastructure.
 By this point, we expect to provide support for blockchain-based storage services such as Storj or Siacoin.
-In addition, novel blockchain functionalities such as private transactions will be enabled by then and will be likely exploited in Legacy's Heritage. 
+In addition, novel blockchain functionalities such as support for private transactions are likely to be enabled by then and will be exploited in Legacy's Heritage. 
 
 % subsection legacy_v2_0_heritage_towards_a_fully_decentralized_architecture (end)
 
