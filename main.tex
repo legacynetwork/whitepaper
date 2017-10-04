@@ -9,7 +9,7 @@
 
 % Some page styling:
 %\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.7in]{geometry}
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
 
@@ -43,6 +43,7 @@
 \usepackage{textcomp} % for copyright symbol
 \usepackage{quotchap} % for chapter openning quotes
 \usepackage{titling}
+\usepackage{tablefootnote}
 
 % Define a path for the fig folder
 % nota: imges must be in the same folder or subfolders of this file, if not pdf2latex will complain
@@ -67,7 +68,7 @@
   Almonacid, Vicente\\
   \texttt{vicente@legacy.network}
 }
-\date{\today\\v0.3.9}
+\date{\today\\v0.7}
 
 % end preamble
 %
@@ -90,14 +91,14 @@
     This paper mainly describes Legacy's initial releases, which allow to transfer digital assets, such as images, videos and text documents. 
     The application core functionalities will be initially developed on the Ethereum blockchain. These include a Proof of Life engine responsible of determining whether the user is alive or not, and a smart contract that manages user assets and schedules their distribution according to a given set of triggering events.
     Exploiting the unique characteristics of blockchain platforms, Legacy is designed in order to ensure security, reliability and long-term availability. 
-    Typical use cases include transfer of sensible data (\textit{e.g.}, personal meaningful data), cryptocurrency holdings and confidential data such as account credentials of digital services. 
-    In the long-term, Legacy expects to integrate smart property as well as to provide a platform for peer-to-peer legal and technical assistance, thus becoming a next-generation smart-will solution.
+    Typical use cases include transfer of sensible data (\textit{e.g.}, personal meaningful data), cryptocurrency holdings and confidential data such as online service account credentials.
+    In the long-term, Legacy expects to integrate smart property and other blockchain-based digital assets, as well as to provide a platform for peer-to-peer legal and technical assistance, thus becoming a next-generation smart-will solution.
 
 \end{abstract}
 
 
-% \chapter*{Acknowledgements}
-% I want to thank...
+% acknowledgements
+\include{chapters/acks}
 
 \tableofcontents
 
@@ -120,7 +121,7 @@
 % ---------------------- %
 % Appendix
 % ---------------------- %
-\include{chapters/appendix}
+%\include{chapters/appendix}
 
 % ---------------------- %
 % Bibliography
