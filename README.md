@@ -1,11 +1,8 @@
-# Legacy Whitepaper
+# Important Note
 
-Legacy is a smart-contract oriented will and testament based on the ethereum blockchain.
+This version of Legacy's whitepaper is now considered as deprecated, but is still publicly accessible for consultation purposes. Please note that Legacy is no longer considering a token sale. A new version of the whitepaper will be released soon.
 
-## Project
+# Additional Information
 
-The project is hosted at legacy.network where you can find more information about it.
+For additional information, please visit https://legacydapp.com/ or contact us directly at `contact [at] legacydapp.com`.
 
-## Format
-
-The Whitepaper is written in LaTeX format, but will be published regularly in PDF format.
